@@ -6,8 +6,10 @@ const booksReducer = (state = initialState, action) => {
   switch (action.type) {
     case a.ADD_BOOK:
       return [...state, action.payload]
+
     case a.DELETE_BOOK:
       return state.filter(book => book.id !== action.payload)
+
     case a.TOGGLE_FAVORITE:
       return state.map(book =>
         book.id === action.payload
@@ -17,6 +19,7 @@ const booksReducer = (state = initialState, action) => {
             }
           : book
       )
+
     default:
       return state
   }
