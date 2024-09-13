@@ -46,9 +46,9 @@ const BookList = () => {
         {filteredBooks.map((book, i) => (
           <li key={book.id}>
             <div className='book-info'>
-              {++i}. 
-              {highlightMatch(book.title, title)} by{' '}
-              <strong>{highlightMatch(book.author, author)}</strong>
+              {++i}.{highlightMatch(book.title, title)} by{' '}
+              <strong>{highlightMatch(book.author, author)}</strong> (
+              {book.source})
             </div>
             <span onClick={() => handleToggleFavorite(book.id)}>
               {book.isFavorite ? (
@@ -63,6 +63,7 @@ const BookList = () => {
           </li>
         ))}
       </ul>
+      {!books.length && <p>No books available</p>}
     </div>
   )
 }
